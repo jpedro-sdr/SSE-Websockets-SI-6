@@ -1,0 +1,16 @@
+<html>
+<script language="javascript">
+    var source = new EventSource("http://localhost:9090/temperature");
+    source.onmessage = function (event) {
+        const data = JSON.parse(event.data);
+        document.getElementById("result").innerHTML = "<h3>Voltagem medida: " +
+            data.value + " " + data.unit + "</h3>";
+    };
+</script>
+
+<body>
+    <form>
+        <div id="result"></div>
+    </form>
+</body>
+</html>
