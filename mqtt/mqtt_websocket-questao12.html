@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT WebSocket Example</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #display {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="display"></div>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:3000');
+        const displayElement = document.getElementById('display');
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            displayElement.innerText = `Received message on topic ${data.topic}: ${data.message}`;
+        };
+
+        ws.onclose = () => {
+            console.log('WebSocket closed');
+        };
+    </script>
+</body>
+</html>

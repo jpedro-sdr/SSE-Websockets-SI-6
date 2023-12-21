@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT Web Interface</title>
+</head>
+<body>
+    <label for="topic">Canal:</label>
+    <input id="topic" type="text">
+    <button onclick="subscribe()">Inscrever</button>
+    <button onclick="unsubscribe()">Desinscrever</button>
+
+    <div id="messages"></div>
+
+    <script>
+        var source = new EventSource('/stream');
+
+        source.onmessage = function (event) {
+            var messagesDiv = document.getElementById('messages');
+            var p = document.createElement('p');
+            p.textContent = 'Tópico: ' + event.data;
+            messagesDiv.appendChild(p);
+        }
+
+        function subscribe() {
+            var topic = document.getElementById('topic').value;
+            fetch('/subscribe/' + topic, { method: 'POST' });
+        }
+
+        function unsubscribe() {
+            var topic = document.getElementById('topic').value;
+            fetch('/unsubscribe/' + topic, { method: 'POST' });
+        }
+    </script>
+</body>
+</html>
