@@ -4,17 +4,18 @@ function getRandomProductId() {
     return Math.floor(Math.random() * 100) + 1;
 }
 
-const stopTimer = Bacon.later(15000, true);
-
-Bacon.interval(10000)
+productStream = Bacon.interval(10000)
     .map(() => getRandomProductId())
-    .flatMapLatest(productId => {
-        return Bacon.fromPromise(
+    .flatMapLatest(productId =>
+        Bacon.fromPromise(
             fetch(`https://dummyjson.com/products/${productId}`)
                 .then(response => response.json())
-        ).onError(error => console.error(`Error fetching product ${productId}:`, error));
-    })
-    .takeUntil(stopTimer)
-    .onValue(function (val) {
-        console.log(val);
-    });
+        )
+    )
+    .takeUntil(Bacon.later(15000, '')); // Questão 4
+
+productStream.onValue(function (product) {
+    console.log(product);
+});
+
+// TEMPO GASTO : 20 MIN 
