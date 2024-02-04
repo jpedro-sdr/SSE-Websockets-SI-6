@@ -1,0 +1,655 @@
+[
+    {
+        "id": "1e55c3b3c7e191e2",
+        "type": "tab",
+        "label": "Primeiro exemplo",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2b0ce05335ad43fa",
+        "type": "tab",
+        "label": "Segundo exemplo",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9caf29c19c64e768",
+        "type": "tab",
+        "label": "Exercício avançado",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8309c5d290ac126d",
+        "type": "websocket-listener",
+        "path": "/ws/voltage",
+        "wholemsg": "false"
+    },
+    {
+        "id": "e69a6c13c2ec95d6",
+        "type": "websocket-client",
+        "path": "ws://localhost:8080/voltage",
+        "tls": "",
+        "wholemsg": "false",
+        "hb": "0",
+        "subprotocol": ""
+    },
+    {
+        "id": "a6e6c3424defa222",
+        "type": "mqtt-broker",
+        "name": "MQTT LISTENER",
+        "broker": "mtqtt://broker.hivemq.com/mqtt",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "sensores/voltagem",
+        "birthQos": "1",
+        "birthRetain": "false",
+        "birthPayload": "Mensagem enviada",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5c0a7cbf2390a129",
+        "type": "websocket-listener",
+        "path": "ws://localhost:8080/data",
+        "wholemsg": "false"
+    },
+    {
+        "id": "fcfe7aa50291a771",
+        "type": "mqtt-broker",
+        "name": "MQTT SENDER",
+        "broker": "mtqtt://broker.hivemq.com/mqtt",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "/mqtt/data",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "Mensagem enviada pelo MQTT",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0448ce7bac812624",
+        "type": "inject",
+        "z": "1e55c3b3c7e191e2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "25717777637b7127"
+            ]
+        ]
+    },
+    {
+        "id": "25717777637b7127",
+        "type": "debug",
+        "z": "1e55c3b3c7e191e2",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c5d7ec39c42324e7",
+        "type": "inject",
+        "z": "1e55c3b3c7e191e2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 80,
+        "wires": [
+            [
+                "8de203197a166a44"
+            ]
+        ]
+    },
+    {
+        "id": "270c55ca9e09c743",
+        "type": "comment",
+        "z": "1e55c3b3c7e191e2",
+        "name": "Evoluindo o primeiro exemplo",
+        "info": "",
+        "x": 200,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8de203197a166a44",
+        "type": "debug",
+        "z": "1e55c3b3c7e191e2",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "59e62eaf70d42346",
+        "type": "comment",
+        "z": "1e55c3b3c7e191e2",
+        "name": "Primeiro exemplo",
+        "info": "",
+        "x": 160,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "b5bcb521ce701c81",
+        "type": "inject",
+        "z": "2b0ce05335ad43fa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "$random()\t",
+        "payloadType": "jsonata",
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "63eb965e1854fbdd"
+            ]
+        ]
+    },
+    {
+        "id": "63eb965e1854fbdd",
+        "type": "debug",
+        "z": "2b0ce05335ad43fa",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c05d4bcf8dbcd299",
+        "type": "comment",
+        "z": "2b0ce05335ad43fa",
+        "name": "Evoluindo o segundo exemplo",
+        "info": "",
+        "x": 200,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "163e940a164fc588",
+        "type": "inject",
+        "z": "2b0ce05335ad43fa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "$random()\t",
+        "payloadType": "jsonata",
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "3d75e19481120c19"
+            ]
+        ]
+    },
+    {
+        "id": "0bfcdfaf18086e78",
+        "type": "debug",
+        "z": "2b0ce05335ad43fa",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "3d75e19481120c19",
+        "type": "switch",
+        "z": "2b0ce05335ad43fa",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0,5",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 220,
+        "wires": [
+            [
+                "0bfcdfaf18086e78"
+            ],
+            [
+                "47c0ffc5a99f8f47"
+            ]
+        ]
+    },
+    {
+        "id": "47c0ffc5a99f8f47",
+        "type": "e-mail",
+        "z": "2b0ce05335ad43fa",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "",
+        "x": 450,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "31f84531c780f2b8",
+        "type": "comment",
+        "z": "2b0ce05335ad43fa",
+        "name": "Segundo exemplo",
+        "info": "",
+        "x": 170,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "64162a13ac3822a3",
+        "type": "websocket in",
+        "z": "9caf29c19c64e768",
+        "name": "",
+        "server": "",
+        "client": "e69a6c13c2ec95d6",
+        "x": 210,
+        "y": 200,
+        "wires": [
+            [
+                "980ca1d727ed1d00"
+            ]
+        ]
+    },
+    {
+        "id": "980ca1d727ed1d00",
+        "type": "debug",
+        "z": "9caf29c19c64e768",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "cbf80914447c0bde",
+        "type": "comment",
+        "z": "9caf29c19c64e768",
+        "name": "1) Lê os dados de voltagem obtidos de um input WebSocket (consulte o código do Server Sent Events para o envio de um número randômico)",
+        "info": "",
+        "x": 550,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "3ace8c9949ba8f23",
+        "type": "mqtt out",
+        "z": "9caf29c19c64e768",
+        "name": "",
+        "topic": "sensores/voltagem",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a6e6c3424defa222",
+        "x": 470,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "19bb54ad0f4189a0",
+        "type": "inject",
+        "z": "9caf29c19c64e768",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 360,
+        "wires": [
+            [
+                "3ace8c9949ba8f23"
+            ]
+        ]
+    },
+    {
+        "id": "c87443365f91e2ef",
+        "type": "comment",
+        "z": "9caf29c19c64e768",
+        "name": "2) Publica em um tópico MQTT, no broker que preferir, usando o respectivo nó outputados de voltagem obtidos de um input WebSocket (consulte o código do Server Sent Events para o envio de um número randômico)",
+        "info": "",
+        "x": 790,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "5e56f4048b6537c4",
+        "type": "comment",
+        "z": "9caf29c19c64e768",
+        "name": "3) Crie outro fluxo dados onde um nó obtém dados através de um input MQTT, efetua alguma manipulação no dado usando um nó function e envia o resultado através de um output WebSocket",
+        "info": "",
+        "x": 710,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "cc11fe79e6f5c8b1",
+        "type": "mqtt in",
+        "z": "9caf29c19c64e768",
+        "name": "MQTT INPUT",
+        "topic": "/data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "fcfe7aa50291a771",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 520,
+        "wires": [
+            [
+                "44bd3348885d5c75"
+            ]
+        ]
+    },
+    {
+        "id": "44bd3348885d5c75",
+        "type": "function",
+        "z": "9caf29c19c64e768",
+        "name": "Duplicar valor do payload",
+        "func": "msg.payload = msg.payload * 2;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 520,
+        "wires": [
+            [
+                "fc084f5d070de8c3"
+            ]
+        ]
+    },
+    {
+        "id": "fc084f5d070de8c3",
+        "type": "websocket out",
+        "z": "9caf29c19c64e768",
+        "name": "Output",
+        "server": "5c0a7cbf2390a129",
+        "client": "",
+        "x": 650,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "cdc8f3d5ce8a2b33",
+        "type": "comment",
+        "z": "9caf29c19c64e768",
+        "name": "Como executar",
+        "info": "Na pasta node-red executar os comandos \nem terminais diferentes:\n\nnode .\\MQTT\\Publisher.js  \nnode .\\Websocket\\Output.js",
+        "x": 160,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "0b296381475f2a7d",
+        "type": "comment",
+        "z": "9caf29c19c64e768",
+        "name": "Como executar",
+        "info": "Na pasta node-red executar os comandos:\n\nnode .\\MQTT\\Subscriber.js",
+        "x": 160,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "609c979f8cd86f22",
+        "type": "comment",
+        "z": "9caf29c19c64e768",
+        "name": "Como executar",
+        "info": "Na pasta node-red executar os comandos:\n\nnode .\\Websocket\\Voltage.js",
+        "x": 160,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "57b43df1a6bf4b9f",
+        "type": "comment",
+        "z": "9caf29c19c64e768",
+        "name": "4) Instale o nó node-red-contrib-sse-client e tente utilizar um nó deste componente para obter dados enviados pelo código node desenvolvido no exercício de Server-sent events",
+        "info": "",
+        "x": 660,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "72767cdbb5eedfb1",
+        "type": "sse-client",
+        "z": "9caf29c19c64e768",
+        "name": "",
+        "url": "http://localhost:9090",
+        "events": [],
+        "headers": {},
+        "proxy": "",
+        "restart": false,
+        "rejectUnauthorized": true,
+        "withCredentials": true,
+        "timeout": 1,
+        "x": 410,
+        "y": 700,
+        "wires": [
+            [
+                "84b1ebdd65b7e2d7"
+            ]
+        ]
+    },
+    {
+        "id": "84b1ebdd65b7e2d7",
+        "type": "debug",
+        "z": "9caf29c19c64e768",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "87dfe14e41f19959",
+        "type": "inject",
+        "z": "9caf29c19c64e768",
+        "name": "Inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "211",
+        "payloadType": "str",
+        "x": 150,
+        "y": 700,
+        "wires": [
+            [
+                "72767cdbb5eedfb1"
+            ]
+        ]
+    },
+    {
+        "id": "f61904ee757f8f04",
+        "type": "comment",
+        "z": "9caf29c19c64e768",
+        "name": "Como executar",
+        "info": "Na pasta node-red executar o comando: \n\nnode .\\SSE\\Server.js",
+        "x": 160,
+        "y": 660,
+        "wires": []
+    }
+]
